@@ -74,6 +74,7 @@ let currentPiece = null;
 let nextPieceType = null;
 let dropTimer = null;
 let keyboardBound = false;
+let touchBound = false;
 let score = 0;
 let isGameOver = false;
 
@@ -531,6 +532,38 @@ function handleKeyDown(event) {
 }
 
 /**
+ * 터치 버튼 조작을 한 번만 등록합니다.
+ */
+function bindTouchControls() {
+  if (touchBound) {
+    return;
+  }
+
+  const buttons = [
+    { id: 'btn-left', action: function () { tryMove(-1, 0); } },
+    { id: 'btn-right', action: function () { tryMove(1, 0); } },
+    { id: 'btn-rotate-cw', action: function () { tryRotate(true); } },
+    { id: 'btn-rotate-ccw', action: function () { tryRotate(false); } },
+    { id: 'btn-drop', action: hardDrop },
+  ];
+
+  buttons.forEach(function (buttonConfig) {
+    const button = document.getElementById(buttonConfig.id);
+
+    if (!button) {
+      return;
+    }
+
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      buttonConfig.action();
+    });
+  });
+
+  touchBound = true;
+}
+
+/**
  * 키보드 이벤트를 한 번만 등록합니다.
  */
 function bindKeyboard() {
@@ -549,4 +582,5 @@ startButton.addEventListener('click', function () {
 });
 
 bindKeyboard();
+bindTouchControls();
 resetGame();

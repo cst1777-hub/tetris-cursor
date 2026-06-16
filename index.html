@@ -2,7 +2,8 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
   <title>테트리스</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,22 +17,24 @@
       </section>
 
       <aside class="sidebar">
-        <div class="panel score-panel">
-          <h2>점수</h2>
-          <p id="score" class="score-value">0</p>
-        </div>
+        <div class="info-row">
+          <div class="panel score-panel">
+            <h2>점수</h2>
+            <p id="score" class="score-value">0</p>
+          </div>
 
-        <div class="panel next-panel">
-          <h2>다음 블록</h2>
-          <div id="next-piece" class="next-piece" aria-label="다음 블록 미리보기"></div>
+          <div class="panel next-panel">
+            <h2>다음 블록</h2>
+            <div id="next-piece" class="next-piece" aria-label="다음 블록 미리보기"></div>
+          </div>
         </div>
 
         <button id="start-btn" type="button" class="btn">시작</button>
 
         <p id="game-status" class="game-status" hidden>게임 오버</p>
 
-        <div class="panel controls-panel">
-          <h2>조작법</h2>
+        <div class="panel controls-panel controls-panel--desktop">
+          <h2>조작법 (키보드)</h2>
           <ul>
             <li><kbd>←</kbd> ArrowLeft : 왼쪽 이동</li>
             <li><kbd>→</kbd> ArrowRight : 오른쪽 이동</li>
@@ -41,6 +44,18 @@
           </ul>
         </div>
       </aside>
+    </div>
+
+    <div class="touch-controls" aria-label="터치 조작">
+      <div class="touch-row">
+        <button type="button" id="btn-rotate-ccw" class="touch-btn" aria-label="시계 반대 방향 회전">↺</button>
+        <button type="button" id="btn-rotate-cw" class="touch-btn" aria-label="시계 방향 회전">↻</button>
+      </div>
+      <div class="touch-row touch-row--main">
+        <button type="button" id="btn-left" class="touch-btn" aria-label="왼쪽 이동">←</button>
+        <button type="button" id="btn-drop" class="touch-btn touch-btn--drop" aria-label="즉시 낙하">▼</button>
+        <button type="button" id="btn-right" class="touch-btn" aria-label="오른쪽 이동">→</button>
+      </div>
     </div>
   </main>
 
