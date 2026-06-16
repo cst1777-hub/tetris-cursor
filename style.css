@@ -86,6 +86,22 @@ h1 {
   text-align: center;
 }
 
+.next-piece {
+  display: grid;
+  grid-template-columns: repeat(4, 20px);
+  grid-template-rows: repeat(4, 20px);
+  gap: 1px;
+  justify-content: center;
+  padding: 8px;
+  background-color: #0f0f1a;
+  border-radius: 4px;
+}
+
+.next-piece .cell {
+  width: 20px;
+  height: 20px;
+}
+
 .btn {
   padding: 12px 24px;
   font-size: 1rem;
@@ -104,6 +120,16 @@ h1 {
 
 .btn:active {
   background-color: #a83048;
+}
+
+.game-status {
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: #e94560;
+  background-color: #16213e;
+  border: 2px solid #e94560;
+  border-radius: 8px;
 }
 
 .controls-panel ul {

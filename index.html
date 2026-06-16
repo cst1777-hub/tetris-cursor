@@ -21,15 +21,23 @@
           <p id="score" class="score-value">0</p>
         </div>
 
+        <div class="panel next-panel">
+          <h2>다음 블록</h2>
+          <div id="next-piece" class="next-piece" aria-label="다음 블록 미리보기"></div>
+        </div>
+
         <button id="start-btn" type="button" class="btn">시작</button>
+
+        <p id="game-status" class="game-status" hidden>게임 오버</p>
 
         <div class="panel controls-panel">
           <h2>조작법</h2>
           <ul>
-            <li><kbd>←</kbd> <kbd>→</kbd> : 좌우 이동</li>
-            <li><kbd>↓</kbd> : 시계 방향 회전</li>
-            <li><kbd>↑</kbd> : 시계 반대 방향 회전</li>
-            <li><kbd>Space</kbd> : 즉시 낙하</li>
+            <li><kbd>←</kbd> ArrowLeft : 왼쪽 이동</li>
+            <li><kbd>→</kbd> ArrowRight : 오른쪽 이동</li>
+            <li><kbd>↓</kbd> ArrowDown : 시계 방향 회전</li>
+            <li><kbd>↑</kbd> ArrowUp : 시계 반대 방향 회전</li>
+            <li><kbd>Space</kbd> : 즉시 낙하 (Hard Drop)</li>
           </ul>
         </div>
       </aside>
